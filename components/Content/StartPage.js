@@ -18,24 +18,33 @@ const CategoryOutWrapper = styled.div`
   min-width: 45%;
   height: 200px;
   margin: 10px;
-  background-color: green;
+  background-color: ${props => props.theme.secondary};
   zoom: auto;
+  border-radius: 6px;
+  border: 1px solid ${props => props.theme.primary};
+
+  :hover {
+    background-color: ${props => props.theme.primary};
+    color: ${props => props.theme.white};
+  }
 `;
 
 const StartPage = () => {
-  const { categoryData } = useContext(ContentContext);
+  const { categoryData, actions } = useContext(ContentContext);
 
-  useEffect(() => {
-    console.log({categoryData});
-  }, []);
-
+  const catOnClickFunc = firstObj => {
+    actions.setSelectedCategory(firstObj.subreddit);
+  }
   return (
     <StartPageWrapper>
       {categoryData && categoryData.map(category => {
         const firstObj = category.children[0].data;
         console.log({firstObj});
         return (
-          <CategoryOutWrapper key={uniqueKeyGen()}>
+          <CategoryOutWrapper
+            key={uniqueKeyGen()}
+            onClick={()=> catOnClickFunc(firstObj)}
+          >
             {firstObj.subreddit}
           </CategoryOutWrapper>
         );

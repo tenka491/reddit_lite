@@ -9,7 +9,10 @@ export default function contentReducer(
     case types.SET_SELECTED_CATEGORY:
       return {
         ...state,
-        selectedCategory: action.payload
+        selectedCategory: action.payload,
+        selectedCategoryData: state.categoryData.find(cat => {
+            return cat.children[0].data.subreddit === action.payload;
+          })
       };
       
       default:
