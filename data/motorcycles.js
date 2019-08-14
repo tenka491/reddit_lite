@@ -1,4 +1,4 @@
-{
+const motorcycles = {
   "kind": "Listing",
   "data": {
     "modhash": "",
@@ -3480,3 +3480,5 @@
     "before": null
   }
 }
+
+export default motorcycles;

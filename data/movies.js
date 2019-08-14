@@ -1,4 +1,4 @@
-{
+const movies = {
   "kind": "Listing",
   "data": {
     "modhash": "",
@@ -4143,3 +4143,5 @@
     "before": null
   }
 }
+
+export default movies;

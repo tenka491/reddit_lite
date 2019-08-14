@@ -1,4 +1,4 @@
-{
+const triumph = {
   "kind": "Listing",
   "data": {
     "modhash": "",
@@ -3763,3 +3763,5 @@
     "before": null
   }
 }
+
+export default triumph;
