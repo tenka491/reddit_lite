@@ -12,7 +12,6 @@ const Category = () => {
     <div>
       <h1>{selectedCategory}</h1>
       {selectedCategoryData && selectedCategoryData.children.map(subreddit => {
-        console.log({subreddit});
         return <SubReddit key={uniqueKeyGen()} subreddit={subreddit} />
       })}
     </div>

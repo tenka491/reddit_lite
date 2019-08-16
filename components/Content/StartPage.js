@@ -39,7 +39,7 @@ const StartPage = () => {
     <StartPageWrapper>
       {categoryData && categoryData.map(category => {
         const firstObj = category.children[0].data;
-        console.log({firstObj});
+        
         return (
           <CategoryOutWrapper
             key={uniqueKeyGen()}

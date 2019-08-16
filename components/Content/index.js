@@ -23,6 +23,12 @@ const Content = ({
   actions
 }) => {
 
+  useEffect(() => {
+    if(selectedCategory !== '') {
+      actions.setSelectedCategory(selectedCategory);
+    }
+  }, [])
+
   return (
     <Provider
       value={{

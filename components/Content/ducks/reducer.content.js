@@ -14,8 +14,8 @@ export default function contentReducer(
             return cat.children[0].data.subreddit === action.payload;
           })
       };
-      
-      default:
+
+    default:
       return state;
   }
 }
