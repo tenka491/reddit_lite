@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { SubredditContext } from '../ducks/SubredditContext';
 import * as Styled from './Post.styles';
+import Comments from './Comments';
 
 const Post = () => {
-  const { author, permalink, num_comments, selftext, title, created_utc, ups } = useContext(SubredditContext);
+  const { author, permalink, selftext, title, created_utc, ups } = useContext(SubredditContext);
 
   const [counter, updateCounter] = useState(ups)
 
@@ -48,10 +49,7 @@ const Post = () => {
             onClick={() => updateCounter(counter - 1)}
           />
         </div>
-        <div className="comment-counter">
-          <span className="far fa-comment-alt" />
-          <span>{num_comments}</span>
-        </div>
+        <Comments />
       </Styled.CounterComments>
     </Styled.PostOuterWrapper>
   );

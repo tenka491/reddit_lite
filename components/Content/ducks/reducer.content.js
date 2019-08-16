@@ -14,6 +14,13 @@ export default function contentReducer(
             return cat.children[0].data.subreddit === action.payload;
           })
       };
+    
+    case types.RESET: 
+    return {
+      ...state,
+      selectedCategory: '',
+      selectedCategoryData: {}
+    };
 
     default:
       return state;
