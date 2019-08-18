@@ -5,6 +5,7 @@ import movies from '../data/movies';
 import triumph from '../data/triumph';
 
 const initialState = {
+  projectId: 'AIzaSyATSMZGuLXgpkHkbxFBrJmjadzZCpT60E4',
   selectedCategory: 'motorcycles',
   categoryData: [
     { ...blizzard.data },

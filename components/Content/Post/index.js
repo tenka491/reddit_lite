@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+// import { Translate } from '@google-cloud/translate';
 
 import { SubredditContext } from '../ducks/SubredditContext';
 import * as Styled from './Post.styles';
@@ -6,11 +7,18 @@ import Comments from './Comments';
 import countFormatter from '../../../utils/countFormatter';
 
 const Post = () => {
-  const { author, permalink, selftext, title, created_utc, ups } = useContext(SubredditContext);
-  let translatedTitle;
-  useEffect(() => {
-    translatedTitle
-  },[])
+  const { author, permalink, selftext, title, created_utc, ups, projectId } = useContext(SubredditContext);
+
+  // NOTES: Whenever I bring in the Translate object from @google-cloud
+  // the whole thing breaks. Looks like it is because I am missing on stuff on my
+  // PC or something.
+  // let translatedTitle;
+  // useEffect(() => {
+  //   const translator = new Translate({projectId});
+  //   const [translation] = translator.translate(title, 'es');
+  //   translatedTitle = translation;
+  //   console.log({translatedTitle});
+  // },[])
   const [counter, updateCounter] = useState(ups)
 
   return (

@@ -24,3 +24,9 @@ Cons: It does take a little more tact when dealing with Redux Actions and how to
 Add a `user` object to the redux store with the user data. Put I would have to create an `express` || `hapi` server to handle all the log in logic and authentication. Which would probably be just a pass through to `oAuth` or something along those lines. If we didn't use `oAuth` then we would have to create a database to house all the user information. 
 
 Then I may create an HOC or a costume React Hook to help with the toggling of components when the user successfully logs in.
+
+
+## Advanced Features
+Couldn't get the google translate to work, I was running into some compile issues possibly because I am on a PC and not a Mac. It looked like it is trying to use something that is not compatible the win32. 
+
+I would work on the img based one but because the images for all the Reddit posts are on a secure server I am not able to. I know this because I tried to use the first image of the hero post as the background for my category buttons but was getting an Unauthorized error. 
