@@ -1,11 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+
 import { SubredditContext } from '../ducks/SubredditContext';
 import * as Styled from './Post.styles';
 import Comments from './Comments';
+import countFormatter from '../../../utils/countFormatter';
 
 const Post = () => {
   const { author, permalink, selftext, title, created_utc, ups } = useContext(SubredditContext);
-
+  let translatedTitle;
+  useEffect(() => {
+    translatedTitle
+  },[])
   const [counter, updateCounter] = useState(ups)
 
   return (
@@ -43,7 +48,7 @@ const Post = () => {
             className="fa fa-caret-up"
             onClick={() => updateCounter(counter + 1)}
           />
-          <span>{counter}</span>
+          <span>{countFormatter(counter)}</span>
           <span
             className="fa fa-caret-down"
             onClick={() => updateCounter(counter - 1)}

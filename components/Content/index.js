@@ -16,6 +16,10 @@ const ContentOuterWrapper = styled.div`
   margin-top: 30px;
 `;
 
+const StartPageWrapper = styled.div`
+  width: ${props => props.shouldCondense ? '180px' : '100%'};
+`;
+
 const Content = ({
   selectedCategory,
   categoryData,
@@ -39,9 +43,9 @@ const Content = ({
       }}
     >
       <ContentOuterWrapper>
-            {!selectedCategory && 
-              <StartPage />
-            }
+        <StartPageWrapper shouldCondense={!!selectedCategory}>
+          <StartPage shouldCondense={!!selectedCategory} />
+        </StartPageWrapper>
             {selectedCategory &&
               <Category />
             }

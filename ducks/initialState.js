@@ -5,7 +5,7 @@ import movies from '../data/movies';
 import triumph from '../data/triumph';
 
 const initialState = {
-  selectedCategory: '',
+  selectedCategory: 'motorcycles',
   categoryData: [
     { ...blizzard.data },
     { ...motorcycles.data },

@@ -5,8 +5,9 @@ import uniqueKeyGen from '../../utils/uniqueKeyGen';
 
 const StartPageWrapper = styled.div`
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
+  flex-flow: ${props => (props.shouldCondense ? "column" : "row")} wrap;
+  justify-content: ${props =>
+    props.shouldCondense ? "flex-start" : "space-evenly"};
   height: 100%;
   width: 100%;
 `;
@@ -16,10 +17,12 @@ const CategoryOutWrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-width: 45%;
-  height: 200px;
+  height: ${props => props.shouldCondense ? "45px" : "200px"};
   margin: 10px;
-  background-color: ${props => props.theme.secondary};
-  zoom: auto;
+  background-color: ${props => 
+    props.active 
+      ? props.theme.primary 
+      : props.theme.secondary};
   border-radius: 6px;
   border: 1px solid ${props => props.theme.primary};
 
@@ -29,14 +32,15 @@ const CategoryOutWrapper = styled.div`
   }
 `;
 
-const StartPage = () => {
-  const { categoryData, actions } = useContext(ContentContext);
+const StartPage = ({ shouldCondense }) => {
+  const { categoryData, actions, selectedCategory } = useContext(ContentContext);
 
   const catOnClickFunc = firstObj => {
     actions.setSelectedCategory(firstObj.subreddit);
   }
+  const isActiveCategory = firstObj => selectedCategory === firstObj.subreddit;
   return (
-    <StartPageWrapper>
+    <StartPageWrapper shouldCondense={shouldCondense}>
       {categoryData && categoryData.map(category => {
         const firstObj = category.children[0].data;
         
@@ -44,6 +48,8 @@ const StartPage = () => {
           <CategoryOutWrapper
             key={uniqueKeyGen()}
             onClick={()=> catOnClickFunc(firstObj)}
+            shouldCondense={shouldCondense}
+            active={isActiveCategory(firstObj)}
           >
             {firstObj.subreddit}
           </CategoryOutWrapper>
